@@ -2,38 +2,11 @@
 #import "NBPreViewController.h"
 #define NBPrefsPath @"/var/mobile/Library/Preferences/com.xtm3x.noblur.plist"
 
-static void WSLog(NSString* string) {
-    NSString *directoryToWrite = @"/var/mobile/Library/Preferences";
-    NSString *documentPath = [directoryToWrite stringByAppendingPathComponent:@"Log.txt"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if(![fileManager fileExistsAtPath:documentPath])
-    {
-        //If no file exists, create it and write the first line to it
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        [@"beginning of file\n" writeToFile:documentPath atomically:NO];
-        #pragma clang diagnostic pop   
-        WSLog(string); 
-    }
-    else {
-        NSDate *someDateInUTC = [NSDate date];
-        NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
-        NSDate *dateInLocalTimezone = [someDateInUTC dateByAddingTimeInterval:timeZoneSeconds];
-        //If a file does exist, insert a break and append it.
-        NSString *textToWrite = [NSString stringWithFormat:@"[%@] %@\n", dateInLocalTimezone, string];
-        NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:documentPath];
-        [fileHandle seekToEndOfFile];
-        [fileHandle writeData:[textToWrite dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-}
-
 @implementation NBCustomizeListController
 -(id)initWithAppName:(NSString*)appName identifier:(NSString*)identifier {
     _appName = appName;
     [_appName retain];
-    WSLog(_appName);
     _identifier = identifier;
-    WSLog(_identifier);
     return [self init];
 }
 - (NSArray*)specifiers {
@@ -157,7 +130,6 @@ static void WSLog(NSString* string) {
     NSIndexPath *levelIndexPath = [NSIndexPath indexPathForRow:1 inSection:2];
     UITableViewCell *levelCell = [self.table cellForRowAtIndexPath:levelIndexPath];
     levelCell.detailTextLabel.text = levelValue;
-    [dict release];
 
     self.navigationItem.title = _appName;
     UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Huh?" style:UIBarButtonItemStyleDone target:self action:@selector(help)];

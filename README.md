@@ -13,4 +13,4 @@ While removing blurs is NoBlur's primary purpose, it also has the side-effect of
 
 ![Settings](http://repo.tm3dev.com/depics/screenshots/noblur3.png)
 
-Anyone is welcome to use this code as designated in the Apache 2.0 Lisence and I am more than happy to accept pull requests of code refractoring and additional features.
+Anyone is welcome to use this code as designated in the Apache 2.0 License and I am more than happy to accept pull requests of code refractoring and additional features.

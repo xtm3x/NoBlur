@@ -162,6 +162,20 @@ static void reloadPrefs() {
 %end
 
 //Lockscreen
+//iOS 10
+%hook SBDashBoardBackgroundView
+-(void)layoutSubviews {
+	%orig;	
+	if (enabled && lockBlur) {
+		_UIBackdropViewSettings *lsblur = self.backdropView.inputSettings;
+		lsblur.blurRadius = 0;
+		lsblur.grayscaleTintAlpha = ltint;
+		[self.backdropView transitionToSettings:lsblur];
+		[self.backdropView _setBlursBackground:NO];
+	}
+}
+%end
+//iOS 7-9
 %hook SBLockOverlayStyleProperties
 -(CGFloat) tintAlpha {
 	return (enabled && lockBlur) ? ltint : %orig;

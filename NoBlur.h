@@ -8,7 +8,6 @@
 -(void)setBlurRadius:(CGFloat)arg1 ;
 -(void)setColorTintAlpha:(CGFloat)arg1 ;
 -(void)setColorTintLevel:(CGFloat)arg1 ;
--(void)setColorTintLevel:(CGFloat)arg1 ;
 -(void)setGrayscaleTintLevel:(CGFloat)arg1;
 -(void)setSaturationDeltaFactor:(CGFloat)arg1;
 -(void)setScale:(CGFloat)arg1;

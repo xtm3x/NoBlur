@@ -163,6 +163,12 @@ static void reloadPrefs() {
 
 //Lockscreen
 //iOS 10
+%hook SBUIPasscodeLockViewBase
+-(void)layoutSubviews {
+	%orig;
+	self.backgroundAlpha = 0.0; //Might need to re-enable this later and use a combination of the two alphas for a full effect but we'll see...
+}
+%end
 %hook SBDashBoardBackgroundView
 -(void)layoutSubviews {
 	%orig;	

@@ -59,6 +59,10 @@
 -(void)transitionComplete;
 @end
 
+@interface SBUIPasscodeLockViewBase : UIView
+@property (assign,nonatomic) double backgroundAlpha;
+@end
+
 @interface SBDashBoardBackgroundView : UIView {
 
 	long long _style;

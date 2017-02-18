@@ -107,3 +107,43 @@
 -(void)setGroupName:(NSString *)arg1 ;
 -(SBBackdropView *)backdropView;
 @end
+
+@interface NCMaterialView : UIView {
+
+	unsigned long long _styleOptions;
+	_UIBackdropView* _backdropView;
+	UIView* _lightOverlayView;
+	UIView* _whiteOverlayView;
+	UIView* _cutoutOverlayView;
+	UIView* _colorInfusionView;
+	double _colorInfusionViewAlpha;
+	double _subviewsContinuousCornerRadius;
+
+}
+
+@property (assign,setter=_setColorInfusionViewAlpha:,getter=_colorInfusionViewAlpha,nonatomic) double colorInfusionViewAlpha;                                      //@synthesize colorInfusionViewAlpha=_colorInfusionViewAlpha - In the implementation block
+@property (assign,setter=_setSubviewsContinuousCornerRadius:,getter=_subviewsContinuousCornerRadius,nonatomic) double subviewsContinuousCornerRadius;              //@synthesize subviewsContinuousCornerRadius=_subviewsContinuousCornerRadius - In the implementation block
+@property (nonatomic,copy) NSString * groupName; 
+@property (nonatomic,retain) UIView * colorInfusionView;                                                                                                           //@synthesize colorInfusionView=_colorInfusionView - In the implementation block
+@property (assign,nonatomic) double grayscaleValue; 
++(id)materialViewWithStyleOptions:(unsigned long long)arg1 ;
+-(void)dealloc;
+-(NSString *)groupName;
+-(void)setGroupName:(NSString *)arg1 ;
+-(UIView *)colorInfusionView;
+-(void)setColorInfusionView:(UIView *)arg1 ;
+-(id)initWithStyleOptions:(unsigned long long)arg1 ;
+-(void)_configureIfNecessary;
+-(void)_reduceTransparencyStatusDidChange;
+-(void)_configureColorInfusionViewIfNecessary;
+-(void)_configureBackdropViewIfNecessary;
+-(void)_configureLightOverlayViewIfNecessary;
+-(void)_configureWhiteOverlayViewIfNecessary;
+-(void)_configureCutoutOverlayViewIfNecessary;
+-(void)_setSubviewsContinuousCornerRadius:(double)arg1 ;
+-(void)_setColorInfusionViewAlpha:(double)arg1 ;
+-(double)grayscaleValue;
+-(void)setGrayscaleValue:(double)arg1 ;
+-(double)_colorInfusionViewAlpha;
+-(double)_subviewsContinuousCornerRadius;
+@end

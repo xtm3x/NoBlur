@@ -257,6 +257,7 @@ static void reloadPrefs() {
 }
 %end
 //Control Center
+//iOS ?-9
 %hook SBControlCenterContentContainerView
 -(void)layoutSubviews {
 	%orig;	
@@ -266,6 +267,23 @@ static void reloadPrefs() {
 		ccblur.grayscaleTintAlpha = cctint;
 		[self.backdropView transitionToSettings:ccblur];
 		[self.backdropView _setBlursBackground:NO];
+	}
+}
+%end
+//iOS 10
+%hook CCUIControlCenterPagePlatterView
+-(void)layoutSubviews {
+	%orig;	
+	if (enabled && cc) {
+		NCMaterialView* materialView = MSHookIvar<NCMaterialView*>(self, "_baseMaterialView");
+		_UIBackdropView* backdropView = MSHookIvar<_UIBackdropView*>(materialView, "_backdropView");
+		_UIBackdropViewSettings *controlCenterBlurSettings = backdropView.inputSettings;
+
+		controlCenterBlurSettings.blurRadius = 0;
+		controlCenterBlurSettings.grayscaleTintAlpha = cctint;
+
+		[backdropView transitionToSettings:controlCenterBlurSettings];
+		[backdropView _setBlursBackground:NO];
 	}
 }
 %end

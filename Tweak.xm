@@ -404,6 +404,7 @@ static void reloadPrefs() {
 
 %ctor {
 	reloadPrefs();
+	dlopen("/System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI", RTLD_NOW);
 	if ([[NSFileManager defaultManager] fileExistsAtPath:OldNBPrefsPath]) {
 		HBLogError(@"Old Preferences File Detected, moving to new one...");
 		NSError *error = nil;

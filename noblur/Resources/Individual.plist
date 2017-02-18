@@ -100,7 +100,7 @@
 			<key>label</key>
 			<string>Spotlight</string>
 			<key>footerText</key>
-			<string>"Disable" will remove the blur and "Fix" will remove the lag.  These two options cannot be used together.</string>
+			<string>Removes the blur in the spotlight.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -113,18 +113,6 @@
 			<string>sblur</string>
 			<key>label</key>
 			<string>Disable</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSSwitchCell</string>
-			<key>default</key>
-			<false/>
-			<key>defaults</key>
-			<string>com.xtm3x.noblur</string>
-			<key>key</key>
-			<string>squal</string>
-			<key>label</key>
-			<string>Fix</string>
 		</dict>
 		<dict>
 			<key>cell</key>

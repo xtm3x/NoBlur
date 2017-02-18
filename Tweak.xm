@@ -231,17 +231,6 @@ static void reloadPrefs() {
 		%orig;
 }
 %end
-//Fix Spotlight
-%hook SBSearchResultsBackdropView
--(BOOL)useHighQualityGraphics {
-	if (enabled && squal) {
-		return FALSE;
-	}
-	else {
-		return %orig;
-	}
-}
-%end
 
 //Dock
 %hook SBDockView

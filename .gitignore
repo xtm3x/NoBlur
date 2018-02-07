@@ -1,0 +1,5 @@
+
+.atom-build.yml
+.theos/
+packages/
+obj/

@@ -1,10 +1,10 @@
 Package: com.xtm3x.noblur
 Name: NoBlur
-Depends: mobilesubstrate
-Version: 1.6.3~beta2
+Depends: mobilesubstrate preferenceloader
+Version: 2.0
 Architecture: iphoneos-arm
 Description: Removes iOS blur views.
-Depiction: http://repo.tm3dev.com/depics/noblur.html
+Depiction: https://xtm3x.github.io/repo/depics/noblur.html
 Maintainer: xTheMaster3x
-Author: xTheMaster3x
+Author: xTheMaster3x <xtm3xyt@gmail.com>
 Section: Tweaks

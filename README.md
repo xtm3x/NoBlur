@@ -1,5 +1,5 @@
 # NoBlur
-NoBlur is a substrate extension made for jailbroken devices on iOS 7 through 10
+NoBlur is a substrate extension made for jailbroken devices on iOS 7 through 11
 
 It features system-wide blur with a high level of customization on a per app basis and allows for some individual elements of the SpringBoard to be disabled as well.
 
